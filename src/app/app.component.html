@@ -24,14 +24,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <!-- <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a> -->
         <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
       </li>
       <li class="nav-item">
+        <!-- <a class="nav-link" routerLink="/posts" routerLinkActive="active">Posts</a> -->
         <a class="nav-link" routerLink="/posts" routerLinkActive="active">Posts</a>
       </li>
     </ul>
@@ -41,5 +44,15 @@
     </form>
   </div>
 </nav>
+<p>
+
+</p>
+
+<div style="margin-top: 50px;"></div>
+<div class="jumbotron">
+  <h1>Leidos Test Application</h1>
+  <p>The application illustrates the routing and REST API connections via httpClient for POST and GET actions...</p>
+</div>
+
 
 <router-outlet></router-outlet>

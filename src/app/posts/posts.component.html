@@ -1,5 +1,34 @@
+<div style="margin: 15px;">
+<button type="button" (click)="show = !show" class="btn btn-primary" id="bt">{{show ? 'Created Post' : 'Create Post'}}</button>
 <p></p>
-<p></p>
-<p>
-  posts works!
-</p>
+<div *ngIf="show">
+<form name="form"  (ngsubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <!-- <form action="" *ngIf="show" novalidate> -->
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" name="title" id="title" [(ngModel)]="model.title" #title="ngModel" [ngClass]="{ 'is-invalid': f.submitted && title.invalid }" required maxlength="24"/>
+    <div *ngIf="f.submitted && title.invalid" class="invalid-feedback">
+      <div *ngIf="title.errors.required">Title is required</div>
+      <div *ngIf="title.errors.maxlength">Title must be at most 24 characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="body">Body:</label>
+    <input type="text" class="form-control" name="body" id="body" [(ngModel)]="model.body" #body="ngModel" required maxlength="50"/>
+    <div *ngIf="f.submitted && body.invalid" class="invalid-feedback">
+      <div *ngIf="body.errors.required">Body is required</div>
+      <div *ngIf="body.errors.maxlength">Body must be at most 50 characters</div>
+    </div>
+  </div>
+  <!-- <div class="form-group form-check"> -->
+    <!--<label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label> -->
+  <!-- </div> -->
+  <!-- <button type="submit" class="btn btn-primary" class="btn btn-success">Submit</button> -->
+  <div class="form-group">
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+</div>

@@ -8,7 +8,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  //public show:boolean = true;
   title = 'Leidos Application';
+
+  users:any = [];
 
   constructor(private svc: RestService, private http: HttpClient) {
 
@@ -22,9 +25,10 @@ export class AppComponent {
     //observer.subscribe((response) => console.log(response));
   }
 
+
   getUsers() {
     this.users = [];
-    this.rest.getUsers().subscribe((data: {}) => {
+    this.svc.getUsers().subscribe((data: {}) => {
       console.log(data);
       this.users = data;
     });
