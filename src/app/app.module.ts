@@ -11,6 +11,8 @@ import { PostsComponent } from './posts/posts.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {RestService} from './rest.service';
 import { ModalComponent } from './modal/modal.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
-    )
+    ),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
     /*routing
      RouterModule.forRoot(
